@@ -67,7 +67,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .card{background:var(–card);border:1px solid var(–border);border-radius:12px;padding:16px;margin-bottom:10px;}
 .card-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
 .card-name{font-weight:600;font-size:15px;color:var(–text);}
-.card-detail{font-size:12px;color:var(–muted);margin-top:3px;}
+.card-detail{font-size:12px;color:#8fa888;margin-top:3px;}
 .badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;}
 .badge.active{background:rgba(76,175,80,0.15);color:var(–green);}
 .badge.pending{background:rgba(224,184,74,0.15);color:var(–gold);}
@@ -76,11 +76,14 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 /* FORM */
 .form-group{margin-bottom:14px;}
-.form-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(–muted);font-weight:500;margin-bottom:6px;display:block;}
-.form-input,.form-select,.form-textarea{width:100%;background:#0e1510;border:1px solid var(–border);border-radius:8px;color:var(–text);font-family:‘DM Sans’,sans-serif;font-size:15px;padding:12px 14px;outline:none;transition:border-color 0.2s;-webkit-appearance:none;}
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(–lime);}
-.form-select option{background:#1a2318;}
-.form-textarea{resize:none;height:80px;line-height:1.5;}
+.form-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(–lime);font-weight:600;margin-bottom:6px;display:block;}
+.form-input,.form-select,.form-textarea{width:100%;background:#1e2b1c;border:1.5px solid #3a5036;border-radius:8px;color:#e8f5e4;font-family:‘DM Sans’,sans-serif;font-size:15px;padding:12px 14px;outline:none;transition:border-color 0.2s;-webkit-appearance:none;}
+.form-input::placeholder{color:#6a8a65;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(–lime);background:#243222;}
+.form-select{color:#e8f5e4;}
+.form-select option{background:#1e2b1c;color:#e8f5e4;}
+.form-textarea{resize:none;height:80px;line-height:1.5;color:#e8f5e4;}
+.form-textarea::placeholder{color:#6a8a65;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 
 /* BUTTONS */
@@ -95,7 +98,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 /* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:200;align-items:flex-end;}
 .modal-overlay.open{display:flex;}
-.modal{background:var(–surface);border-radius:20px 20px 0 0;padding:24px 20px 40px;width:100%;max-height:90vh;overflow-y:auto;}
+.modal{background:#1c2b1a;border-radius:20px 20px 0 0;padding:24px 20px 40px;width:100%;max-height:90vh;overflow-y:auto;}
 .modal-handle{width:40px;height:4px;background:var(–border);border-radius:2px;margin:0 auto 20px;}
 .modal-title{font-family:‘Bebas Neue’,sans-serif;font-size:24px;letter-spacing:2px;margin-bottom:18px;color:var(–lime);}
 
@@ -160,12 +163,27 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .gap-10{gap:10px;}
 .flex{display:flex;}
 
-/* ADDON CHECKBOXES */
+/* ADDON CHECKBOXES + RADIO */
 .addon-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(–border);cursor:pointer;}
 .addon-row:last-child{border:none;padding-bottom:0;}
-.addon-row input[type=checkbox]{width:18px;height:18px;accent-color:var(–lime);flex-shrink:0;cursor:pointer;}
-.addon-name{flex:1;font-size:13px;color:var(–tan);}
+.addon-row input[type=checkbox],.addon-row input[type=radio]{width:18px;height:18px;accent-color:var(–lime);flex-shrink:0;cursor:pointer;}
+.addon-name{flex:1;font-size:13px;color:#d4e8d0;}
 .addon-price{font-size:12px;color:var(–lime);font-weight:600;white-space:nowrap;}
+/* PACKAGE CARDS */
+.pkg-card{background:var(–card);border:2px solid var(–border);border-radius:12px;padding:14px 8px;text-align:center;cursor:pointer;transition:all 0.2s;}
+.pkg-card.selected{border-color:var(–lime);background:#1f3020;}
+.pkg-card:active{transform:scale(0.97);}
+.pkg-label{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#8fa888;margin-bottom:4px;}
+.pkg-price{font-family:‘Bebas Neue’,sans-serif;font-size:20px;color:var(–lime);line-height:1;}
+.pkg-sub{font-size:10px;color:#6a8066;margin-top:3px;}
+.pkg-card.selected .pkg-label{color:var(–lime);}
+/* PAY MODAL */
+.pay-method-row{display:flex;gap:8px;margin-bottom:14px;}
+.pay-method-btn{flex:1;padding:12px 8px;border-radius:10px;border:2px solid var(–border);background:var(–card);color:#d4e8d0;font-size:13px;font-weight:600;cursor:pointer;text-align:center;transition:all 0.2s;}
+.pay-method-btn.active{border-color:var(–lime);background:#1f3020;color:var(–lime);}
+/* BADGE PAID */
+.badge.paid{background:rgba(174,220,90,0.15);color:var(–lime);}
+.badge.unpaid{background:rgba(224,90,74,0.15);color:var(–red);}
 </style>
 
 </head>
@@ -191,6 +209,23 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 <div class="stat-card gold"><div class="stat-val" id="stat-revenue">$0</div><div class="stat-label">This Month</div></div>
 <div class="stat-card blue"><div class="stat-val" id="stat-jobs">0</div><div class="stat-label">Jobs Done</div></div>
 <div class="stat-card red"><div class="stat-val" id="stat-pending">0</div><div class="stat-label">Pending Jobs</div></div>
+</div>
+<!-- TAX ASIDE BOX -->
+<div id="tax-aside-box" style="background:linear-gradient(135deg,#1a2a10,#0f1e0d);border:1px solid rgba(224,184,74,0.35);border-radius:14px;padding:16px 18px;margin-bottom:18px;display:none;">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;">
+<div>
+<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px;">💰 Tax Set-Aside (30%)</div>
+<div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);line-height:1;" id="stat-tax">$0</div>
+<div style="font-size:11px;color:#8fa888;margin-top:4px;">from <span id="tax-basis">$0</span> earned this month</div>
+</div>
+<div style="text-align:right;">
+<div style="font-size:10px;color:#8fa888;margin-bottom:6px;">All-time set-aside</div>
+<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:rgba(224,184,74,0.7);" id="stat-tax-alltime">$0</div>
+</div>
+</div>
+<div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(224,184,74,0.15);font-size:12px;color:#8fa888;line-height:1.6;">
+Keep this in a separate account. Due quarterly: <strong style="color:var(--gold);">Apr 15 · Jun 15 · Sep 15 · Jan 15</strong>
+</div>
 </div>
 
 <div class="sh">Upcoming Jobs</div>
@@ -227,136 +262,157 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 <!-- QUOTE TOOL -->
 <div id="screen-quote" class="screen">
-<div style="padding:16px;">
-<div class="sh">Quote Calculator</div>
-<div class="sh-sub">Build your price on-site, then text it instantly</div>
+<div style="padding:16px 16px 0;">
+<div class="sh">Quote Builder</div>
+<div class="sh-sub">Your pricing — tap to build a quote, then text it</div>
+<div style="background:rgba(74,158,224,0.1);border:1px solid rgba(74,158,224,0.25);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:12px;color:#8fc8e8;display:flex;align-items:center;gap:8px;"><span style="font-size:16px;">📱</span><span>Texts route through your Hushed business line <strong style="color:#a8d8f0;">(803) 964-4818</strong> — your personal number stays private.</span></div>
 
-<div class="card">
-<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--lime);font-weight:600;margin-bottom:10px;">Base Job</div>
+<!-- STEP 1: BASE PACKAGE -->
+<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:8px;">Step 1 — Choose Package (required)</div>
+
+<div style="font-size:11px;color:#8fa888;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">⬛ Standard / Base</div>
+<div style="font-size:11px;color:#8fa888;margin-bottom:10px;">Mowing · Trimming · Edging · Cleanup</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px;">
+<div class="pkg-card" id="pkg-small" onclick="selectPkg('small')">
+<div class="pkg-label">Small</div>
+<div class="pkg-price">$65–75</div>
+<div class="pkg-sub">&lt;¼ acre</div>
+</div>
+<div class="pkg-card selected" id="pkg-medium" onclick="selectPkg('medium')">
+<div class="pkg-label">Medium</div>
+<div class="pkg-price">$75–90</div>
+<div class="pkg-sub">¼–½ acre</div>
+</div>
+<div class="pkg-card" id="pkg-large" onclick="selectPkg('large')">
+<div class="pkg-label">Large</div>
+<div class="pkg-price">$90–115+</div>
+<div class="pkg-sub">½–1 acre</div>
+</div>
+</div>
+
+<div style="font-size:11px;color:var(--gold);font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">⭐ Full-Lawn Care Package</div>
+<div style="font-size:11px;color:#8fa888;margin-bottom:10px;">Everything in Standard + Weed Control + Fertilizer + Light Flower Bed Maintenance</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;">
+<div class="pkg-card" id="pkg-full-small" onclick="selectPkg('full-small')" style="border-color:rgba(224,184,74,0.3);">
+<div class="pkg-label" style="color:var(--gold);">Small</div>
+<div class="pkg-price" style="color:var(--gold);">$115–135</div>
+<div class="pkg-sub">&lt;¼ acre</div>
+</div>
+<div class="pkg-card" id="pkg-full-medium" onclick="selectPkg('full-medium')" style="border-color:rgba(224,184,74,0.3);">
+<div class="pkg-label" style="color:var(--gold);">Medium</div>
+<div class="pkg-price" style="color:var(--gold);">$130–155</div>
+<div class="pkg-sub">¼–½ acre</div>
+</div>
+<div class="pkg-card" id="pkg-full-large" onclick="selectPkg('full-large')" style="border-color:rgba(224,184,74,0.3);">
+<div class="pkg-label" style="color:var(--gold);">Large</div>
+<div class="pkg-price" style="color:var(--gold);">$150–185+</div>
+<div class="pkg-sub">½–1 acre</div>
+</div>
+</div>
+
+<!-- STEP 2: FIRST-TIME VISIT -->
+<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:8px;">Step 2 — First-Time Visit? (optional)</div>
+<div class="card" style="padding:12px 14px;margin-bottom:16px;">
+<label class="addon-row"><input type="radio" name="firsttime" class="addon-radio" value="none" checked onchange="calcQuote()"><span class="addon-name">Not a first-time visit</span><span class="addon-price">+$0</span></label>
+<label class="addon-row"><input type="radio" name="firsttime" class="addon-radio" value="light" onchange="calcQuote()"><span class="addon-name">Light first-time cleanup</span><span class="addon-price">+$20</span></label>
+<label class="addon-row"><input type="radio" name="firsttime" class="addon-radio" value="moderate" onchange="calcQuote()"><span class="addon-name">Moderate first-time cleanup</span><span class="addon-price">+$25–30</span></label>
+<label class="addon-row"><input type="radio" name="firsttime" class="addon-radio" value="heavy" onchange="calcQuote()"><span class="addon-name">Heavy first-time cleanup</span><span class="addon-price">+$35–40</span></label>
+</div>
+
+<!-- STEP 3: ADD-ONS -->
+<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:8px;">Step 3 — Add-On Services (select any)</div>
+
+<div class="card" style="padding:12px 14px;margin-bottom:8px;">
+<div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#8fa888;margin-bottom:8px;">🌿 Yard Condition</div>
+<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="10" data-hi="25" data-label="Heavy Trimming / Overgrown" onchange="calcQuote()"><span class="addon-name">Heavy Trimming / Overgrown</span><span class="addon-price">+$10–25</span></label>
+<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="15" data-hi="30" data-label="Heavy Cleanup" onchange="calcQuote()"><span class="addon-name">Heavy Cleanup</span><span class="addon-price">+$15–30</span></label>
+</div>
+
+<div class="card" style="padding:12px 14px;margin-bottom:8px;">
+<div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#8fa888;margin-bottom:8px;">🌱 Treatments</div>
+<label class="addon-row" id="addon-row-weed"><input type="checkbox" class="addon-cb" id="addon-weed" data-lo="15" data-hi="30" data-label="Weed Control" data-pkg-locked="true" onchange="calcQuote()"><span class="addon-name">Weed Control</span><span class="addon-price" id="addon-price-weed">+$15–30</span></label>
+<label class="addon-row" id="addon-row-fert"><input type="checkbox" class="addon-cb" id="addon-fert" data-lo="25" data-hi="40" data-label="Fertilizer Treatment" data-pkg-locked="true" onchange="calcQuote()"><span class="addon-name">Fertilizer Treatment</span><span class="addon-price" id="addon-price-fert">+$25–40</span></label>
+</div>
+
+<div class="card" style="padding:12px 14px;margin-bottom:8px;">
+<div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#8fa888;margin-bottom:8px;">🌸 Flower Beds</div>
+<label class="addon-row" id="addon-row-beds"><input type="checkbox" class="addon-cb" id="addon-beds" data-lo="15" data-hi="50" data-label="Flower Bed Maintenance" data-pkg-locked="true" onchange="calcQuote()"><span class="addon-name">Flower Bed Maintenance</span><span class="addon-price" id="addon-price-beds">+$15–50</span></label>
+</div>
+
+<!-- STEP 4: CUSTOMER INFO -->
+<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:8px;">Step 4 — Customer</div>
+<div class="card" style="margin-bottom:16px;">
 <div class="form-row">
-<div class="form-group">
-<label class="form-label">Yard Size</label>
-<select class="form-select" id="q-size" onchange="calcQuote()">
-<option value="small">Small (&lt;¼ac)</option>
-<option value="medium" selected>Medium (¼–½ac)</option>
-<option value="large">Large (½–1ac)</option>
-<option value="xlarge">XL (1ac+)</option>
-</select>
-</div>
-<div class="form-group">
-<label class="form-label">Grass Condition</label>
-<select class="form-select" id="q-cond" onchange="calcQuote()">
-<option value="normal">Normal</option>
-<option value="overgrown">Overgrown (+$15)</option>
-<option value="very">Very Overgrown (+$30)</option>
-</select>
-</div>
-</div>
-<div class="form-row">
-<div class="form-group">
-<label class="form-label">Obstacles</label>
-<select class="form-select" id="q-obs" onchange="calcQuote()">
-<option value="none">Few/None</option>
-<option value="some">Some (+$7)</option>
-<option value="many">Many (+$15)</option>
-</select>
-</div>
-<div class="form-group">
-<label class="form-label">Slope</label>
-<select class="form-select" id="q-slope" onchange="calcQuote()">
-<option value="flat">Flat</option>
-<option value="some">Some (+$7)</option>
-<option value="steep">Steep (+$15)</option>
-</select>
-</div>
-</div>
-<div class="form-row">
-<div class="form-group">
+<div class="form-group" style="margin-bottom:0;">
 <label class="form-label">Customer Type</label>
 <select class="form-select" id="q-ctype" onchange="calcQuote()">
 <option value="standard">Standard</option>
-<option value="senior">Senior (-$10)</option>
+<option value="senior">Senior / Fixed (-$10)</option>
 <option value="recurring">Recurring (-$5)</option>
 </select>
 </div>
-<div class="form-group">
-<label class="form-label">Customer Phone</label>
+<div class="form-group" style="margin-bottom:0;">
+<label class="form-label">Phone (for SMS)</label>
 <input class="form-input" id="q-phone" type="tel" placeholder="(555) 000-0000">
 </div>
 </div>
 </div>
 
-<!-- ADD-ON SERVICES -->
-<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--lime);font-weight:600;margin:4px 0 10px;">Add-On Services</div>
+<button class="btn btn-primary" onclick="calcQuote(true)" style="margin-bottom:16px;">⚡ BUILD MY QUOTE</button>
 
-<div id="addon-list">
-<!-- Edging -->
-<div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:10px 0 6px;padding-left:2px;">✂️ Edging</div>
-<div class="card" style="padding:12px 14px;margin-bottom:6px;">
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="20" data-hi="35" data-label="Sidewalk & Driveway Edging" onchange="calcQuote()"><span class="addon-name">Sidewalk & Driveway Edging</span><span class="addon-price">+$20–35</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="25" data-hi="45" data-label="Bed Edging (Clean Lines)" onchange="calcQuote()"><span class="addon-name">Bed Edging (Clean Lines)</span><span class="addon-price">+$25–45</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="40" data-hi="65" data-label="Full Property Edging" onchange="calcQuote()"><span class="addon-name">Full Property Edging</span><span class="addon-price">+$40–65</span></label>
-</div>
-
-<!-- Weed Control -->
-<div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:10px 0 6px;padding-left:2px;">🌿 Weed Control</div>
-<div class="card" style="padding:12px 14px;margin-bottom:6px;">
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="25" data-hi="45" data-label="Spot Weed Treatment" onchange="calcQuote()"><span class="addon-name">Spot Weed Treatment</span><span class="addon-price">+$25–45</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="45" data-hi="80" data-label="Full Yard Pre-Emergent" onchange="calcQuote()"><span class="addon-name">Full Yard Pre-Emergent</span><span class="addon-price">+$45–80</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="40" data-hi="70" data-label="Post-Emergent Weed Treatment" onchange="calcQuote()"><span class="addon-name">Post-Emergent Treatment</span><span class="addon-price">+$40–70</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="30" data-hi="60" data-label="Bed Weed Removal (Hand-Pull)" onchange="calcQuote()"><span class="addon-name">Bed Weed Removal (Hand-Pull)</span><span class="addon-price">+$30–60</span></label>
-</div>
-
-<!-- Fertilization -->
-<div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:10px 0 6px;padding-left:2px;">🌱 Fertilization</div>
-<div class="card" style="padding:12px 14px;margin-bottom:6px;">
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="45" data-hi="85" data-label="Fertilization Treatment (Single)" onchange="calcQuote()"><span class="addon-name">Single Fertilization Treatment</span><span class="addon-price">+$45–85</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="40" data-hi="75" data-label="Fert Plan – Step 1 (Early Spring)" onchange="calcQuote()"><span class="addon-name">Fert Plan – Step 1 (Early Spring)</span><span class="addon-price">+$40–75</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="40" data-hi="75" data-label="Fert Plan – Step 2 (Late Spring)" onchange="calcQuote()"><span class="addon-name">Fert Plan – Step 2 (Late Spring)</span><span class="addon-price">+$40–75</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="40" data-hi="75" data-label="Fert Plan – Step 3 (Summer)" onchange="calcQuote()"><span class="addon-name">Fert Plan – Step 3 (Summer)</span><span class="addon-price">+$40–75</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="40" data-hi="75" data-label="Fert Plan – Step 4 (Fall)" onchange="calcQuote()"><span class="addon-name">Fert Plan – Step 4 (Fall)</span><span class="addon-price">+$40–75</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="35" data-hi="65" data-label="Lawn Starter / New Seed Fertilization" onchange="calcQuote()"><span class="addon-name">Starter / New Seed Fertilization</span><span class="addon-price">+$35–65</span></label>
-</div>
-
-<!-- Flower Beds -->
-<div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:10px 0 6px;padding-left:2px;">🌸 Flower Beds</div>
-<div class="card" style="padding:12px 14px;margin-bottom:6px;">
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="40" data-hi="80" data-label="Flower Bed Clearing" onchange="calcQuote()"><span class="addon-name">Flower Bed Clearing</span><span class="addon-price">+$40–80</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="25" data-hi="50" data-label="Flower Bed Light Maintenance" onchange="calcQuote()"><span class="addon-name">Bed Light Maintenance</span><span class="addon-price">+$25–50</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="30" data-hi="60" data-label="Mulch Refresh (Top Dress)" onchange="calcQuote()"><span class="addon-name">Mulch Refresh (Top Dress)</span><span class="addon-price">+$30–60</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="60" data-hi="120" data-label="New Mulch Install" onchange="calcQuote()"><span class="addon-name">New Mulch Install</span><span class="addon-price">+$60–120</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="80" data-hi="150" data-label="Full Bed Service (Edge+Weed+Mulch)" onchange="calcQuote()"><span class="addon-name">Full Bed Service (Edge+Weed+Mulch)</span><span class="addon-price">+$80–150</span></label>
-</div>
-
-<!-- Cleanup -->
-<div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:10px 0 6px;padding-left:2px;">🍂 Cleanup</div>
-<div class="card" style="padding:12px 14px;margin-bottom:6px;">
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="30" data-hi="60" data-label="Leaf Cleanup" onchange="calcQuote()"><span class="addon-name">Leaf Cleanup</span><span class="addon-price">+$30–60</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="60" data-hi="120" data-label="Spring Cleanup (Full Property)" onchange="calcQuote()"><span class="addon-name">Spring Cleanup (Full Property)</span><span class="addon-price">+$60–120</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="60" data-hi="120" data-label="Fall Cleanup (Full Property)" onchange="calcQuote()"><span class="addon-name">Fall Cleanup (Full Property)</span><span class="addon-price">+$60–120</span></label>
-<label class="addon-row"><input type="checkbox" class="addon-cb" data-lo="25" data-hi="50" data-label="Debris Removal" onchange="calcQuote()"><span class="addon-name">Debris Removal</span><span class="addon-price">+$25–50</span></label>
-</div>
-</div>
-
-<button class="btn btn-primary" onclick="calcQuote(true)" style="margin-top:4px;">CALCULATE TOTAL QUOTE</button>
-
+<!-- RESULT -->
 <div class="quote-result-box" id="qr-box">
-<div class="qr-row"><span class="qr-label">Base mow price</span><span class="qr-val" id="qr-base">—</span></div>
-<div class="qr-row"><span class="qr-label">Condition</span><span class="qr-val" id="qr-cond">—</span></div>
-<div class="qr-row"><span class="qr-label">Difficulty</span><span class="qr-val" id="qr-diff">—</span></div>
+<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:10px;">Your Quote Breakdown</div>
+<div class="qr-row"><span class="qr-label">Base package</span><span class="qr-val" id="qr-base">—</span></div>
+<div id="qr-firsttime-row"></div>
 <div id="qr-addons-list"></div>
-<div class="qr-row"><span class="qr-label">Discount</span><span class="qr-val" id="qr-disc">—</span></div>
+<div id="qr-disc-row"></div>
 <div class="qr-final">
-<span class="qr-final-label">TOTAL QUOTE</span>
+<div>
+<div class="qr-final-label">TOTAL RANGE</div>
+<div style="font-size:11px;color:#8fa888;margin-top:2px;">Min charge: $65</div>
+</div>
 <span class="qr-final-price" id="qr-final">—</span>
 </div>
-<div id="qr-services-summary" style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6;"></div>
-<div class="qr-script" id="qr-script"></div>
+<div id="qr-services-summary" style="font-size:11px;color:#8fa888;margin-top:10px;line-height:1.7;padding:10px;background:#111e10;border-radius:8px;"></div>
+<div class="qr-script" id="qr-script" style="margin-top:12px;"></div>
+<div id="save-job-confirm" style="display:none;background:rgba(174,220,90,0.12);border:1px solid var(--lime);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:13px;color:var(--lime);text-align:center;">
+✅ Job saved! Go to the Jobs tab to schedule it.
+</div>
 <div style="display:flex;gap:10px;margin-top:14px;">
 <button class="btn btn-sms" onclick="sendSMS()" style="flex:1;">📱 Text Quote</button>
-<button class="btn btn-secondary" onclick="saveQuoteAsJob()" style="flex:1;">💾 Save as Job</button>
+<button class="btn btn-primary" onclick="saveQuoteAsJob()" style="flex:1;">💾 Save as Job</button>
 </div>
 </div>
+<div style="height:20px;"></div>
+</div>
+</div>
+
+<!-- SCHEDULE SCREEN -->
+<div id="screen-schedule" class="screen">
+<div style="padding:0 16px 16px;">
+
+<!-- View Toggle -->
+<div class="tab-bar" style="margin-top:16px;">
+<div class="tab-btn active" id="sv-week" onclick="schedView('week',this)">Week</div>
+<div class="tab-btn" id="sv-month" onclick="schedView('month',this)">Month</div>
+<div class="tab-btn" id="sv-pipeline" onclick="schedView('pipeline',this)">Pipeline</div>
+<div class="tab-btn" id="sv-route" onclick="schedView('route',this)">Route</div>
+</div>
+
+<!-- Week Nav -->
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;" id="cal-nav">
+<button onclick="shiftWeek(-1)" style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 14px;color:var(--text);font-size:18px;cursor:pointer;">‹</button>
+<div style="text-align:center;">
+<div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:var(--lime);" id="cal-range-label">—</div>
+<div style="font-size:11px;color:#8fa888;" id="cal-week-revenue">$0 booked</div>
+</div>
+<button onclick="shiftWeek(1)" style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 14px;color:var(--text);font-size:18px;cursor:pointer;">›</button>
+</div>
+
+<!-- Calendar / Pipeline content -->
+<div id="sched-content"></div>
+
 </div>
 </div>
 
@@ -447,6 +503,7 @@ Host this file free at <strong>glitch.com</strong> or <strong>netlify.com/drop</
 <div class="nav-item active" onclick="goTo('dashboard',this)"><div class="nav-icon">📊</div>Dash</div>
 <div class="nav-item" onclick="goTo('customers',this)"><div class="nav-icon">👥</div>Clients</div>
 <div class="nav-item" onclick="goTo('jobs',this)"><div class="nav-icon">📋</div>Jobs</div>
+<div class="nav-item" onclick="goTo('schedule',this)"><div class="nav-icon">📅</div>Schedule</div>
 <div class="nav-item" onclick="goTo('quote',this)"><div class="nav-icon">💵</div>Quote</div>
 <div class="nav-item" onclick="goTo('scripts',this)"><div class="nav-icon">💬</div>Scripts</div>
 <div class="nav-item" onclick="goTo('settings',this)"><div class="nav-icon">⚙️</div>Data</div>
@@ -564,6 +621,41 @@ Host this file free at <strong>glitch.com</strong> or <strong>netlify.com/drop</
 </div>
 </div>
 
+<!-- PAYMENT MODAL -->
+
+<div class="modal-overlay" id="modal-pay">
+<div class="modal">
+<div class="modal-handle"></div>
+<div class="modal-title">💵 Close Job & Record Payment</div>
+<input type="hidden" id="pay-job-id">
+<div id="pay-job-summary" style="background:#111e10;border-radius:10px;padding:14px;margin-bottom:16px;font-size:14px;color:#d4e8d0;line-height:1.8;"></div>
+<div class="form-group">
+<label class="form-label">Amount Received ($)</label>
+<input class="form-input" id="pay-amount" type="number" placeholder="65">
+</div>
+<div class="form-group">
+<label class="form-label">Payment Method</label>
+<div class="pay-method-row">
+<div class="pay-method-btn active" id="pm-cash" onclick="selectPayMethod('cash')">💵 Cash</div>
+<div class="pay-method-btn" id="pm-venmo" onclick="selectPayMethod('venmo')">💜 Venmo</div>
+<div class="pay-method-btn" id="pm-zelle" onclick="selectPayMethod('zelle')">💛 Zelle</div>
+<div class="pay-method-btn" id="pm-check" onclick="selectPayMethod('check')">📄 Check</div>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">Payment Notes (optional)</label>
+<input class="form-input" id="pay-notes" placeholder="e.g. paid in full, owes $10...">
+</div>
+<div id="pay-cash-guide" style="background:rgba(174,220,90,0.07);border:1px solid rgba(174,220,90,0.2);border-radius:10px;padding:14px;margin-bottom:14px;">
+<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:8px;">💵 Cash Tips</div>
+<div style="font-size:13px;color:#d4e8d0;line-height:1.7;">• Always count it in front of the customer<br>• Say the amount out loud as you receive it<br>• Store cash safely — separate from personal money<br>• Set aside 25–30% for self-employment taxes</div>
+</div>
+<button class="btn btn-primary" onclick="closeJobWithPayment()" style="margin-bottom:8px;">✅ Mark Paid & Close Job</button>
+<button class="btn btn-secondary" onclick="markJobDoneNoPay()" style="margin-bottom:8px;">Mark Done (collect later)</button>
+<button class="btn btn-secondary" onclick="closeModal('modal-pay')">Cancel</button>
+</div>
+</div>
+
 <script>
 // ============ STATE ============
 let customers = JSON.parse(localStorage.getItem('lcrm_customers')||'[]');
@@ -588,17 +680,21 @@ const titles = {
 dashboard:['🌿 Dashboard','Your lawn business at a glance'],
 customers:['👥 Customers','Manage your client list'],
 jobs:['📋 Jobs','Track your schedule'],
+schedule:['📅 Schedule','Calendar · Pipeline · Route'],
 quote:['💵 Quote Tool','Build & send quotes on-site'],
 scripts:['💬 Scripts','Word-for-word sales scripts'],
 settings:['⚙️ Data & Backup','Export, restore & protect your data']
 };
+if(titles[screen]){
 document.getElementById('topbarTitle').textContent = titles[screen][0];
 document.getElementById('topbarSub').textContent = titles[screen][1];
-document.getElementById('topbarAction').style.display = ['customers','jobs'].includes(screen) ? 'block' : 'none';
+}
+document.getElementById('topbarAction').style.display = ['customers','jobs','schedule'].includes(screen) ? 'block' : 'none';
 
 if(screen==='dashboard') renderDashboard();
 if(screen==='customers') renderCustomers();
 if(screen==='jobs') renderJobs('upcoming');
+if(screen==='schedule') initSchedule();
 if(screen==='scripts') showScript('door', document.querySelector('#screen-scripts .tab-btn'));
 if(screen==='settings') renderDataSummary();
 }
@@ -606,6 +702,7 @@ if(screen==='settings') renderDataSummary();
 function topbarActionClick(){
 if(currentScreen==='customers') openAddCustomer();
 if(currentScreen==='jobs') openAddJob();
+if(currentScreen==='schedule') openAddJob();
 }
 
 // ============ MODALS ============
@@ -749,11 +846,12 @@ ${c.notes?`<div style="margin-top:10px;padding-top:10px;border-top:1px solid var
 <div class="stat-card red"><div class="stat-val">${upcomingJobs.length}</div><div class="stat-label">Pending</div></div>
 </div>
 
-<div style="display:flex;gap:8px;margin-bottom:12px;">
-<a href="tel:${c.phone}" class="btn btn-secondary btn-sm" style="flex:1;text-decoration:none;text-align:center;">📞 Call</a>
-<a href="sms:${c.phone}" class="btn btn-sms btn-sm" style="flex:1;text-decoration:none;text-align:center;">💬 Text</a>
+<div style="display:flex;gap:8px;margin-bottom:4px;">
+<button class="btn btn-secondary btn-sm" style="flex:1;" onclick="callCustomer('${c.phone}')">📞 Call</button>
+<button class="btn btn-sms btn-sm" style="flex:1;" onclick="textCustomer('${c.phone}','${c.name}')">💬 Text</button>
 <button class="btn btn-primary btn-sm" style="flex:1;" onclick="scheduleJobFor(${c.id})">📋 Job</button>
 </div>
+<div style="font-size:11px;color:#6a9068;text-align:center;margin-bottom:10px;">📱 Texts open from business line (803) 964-4818</div>
 
 <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;color:var(--muted);margin-bottom:4px;">JOB HISTORY</div>
 <div style="border-top:1px solid var(--border);">${jobHistoryHTML}</div>
@@ -848,35 +946,41 @@ const today = new Date().toISOString().split('T')[0];
 const isOverdue = j.status==='upcoming' && j.date < today;
 const statusBadge = isOverdue ? 'overdue' : j.status;
 const displayDate = formatDate(j.date);
+const payBadge = j.status==='done' ? (j.paid ? '<span class="badge paid" style="margin-left:4px;">✓ PAID</span>' : '<span class="badge unpaid" style="margin-left:4px;">UNPAID</span>') : '';
+const payMethod = j.paid && j.paymentMethod ? `<span style="font-size:11px;color:#8fa888;margin-left:4px;">via ${j.paymentMethod}</span>` : '';
+const amtReceived = j.paid && j.amountReceived ? `<span style="font-size:11px;color:var(--lime);margin-left:4px;">$${j.amountReceived} received</span>` : '';
 return `
 <div class="card">
 <div class="card-row">
-<div>
+<div style="flex:1;min-width:0;">
 <div class="card-name">${j.customerName}</div>
-<div class="card-detail">${j.services}</div>
+<div class="card-detail" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px;">${j.services}</div>
 </div>
-<div style="text-align:right;">
+<div style="text-align:right;flex-shrink:0;">
 <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--lime);">$${j.price}</div>
 <span class="badge ${statusBadge}">${isOverdue?'overdue':j.status}</span>
+${payBadge}
 </div>
 </div>
 <div class="job-meta">
-<span style="font-size:12px;color:var(--muted);">📅 ${displayDate}</span>
-${j.notes?`<span style="font-size:12px;color:var(--muted);">· ${j.notes.substring(0,30)}${j.notes.length>30?'...':''}</span>`:''}
+<span style="font-size:12px;color:#8fa888;">📅 ${displayDate}</span>
+${amtReceived}${payMethod}
+${j.notes?`<span style="font-size:12px;color:#8fa888;">· ${j.notes.substring(0,25)}${j.notes.length>25?'...':''}</span>`:''}
 </div>
 ${j.status==='upcoming' ? `
 <div class="job-actions">
-<button onclick="markDone(${j.id})" style="background:rgba(76,175,80,0.15);color:var(--green);">✓ Mark Done</button>
-<button onclick="deleteJob(${j.id})" style="background:rgba(224,90,74,0.1);color:var(--red);">✕ Delete</button>
-</div>` : ''}
+<button onclick="openPayModal(${j.id})" style="background:rgba(174,220,90,0.15);color:var(--lime);flex:2;">💵 Close & Pay</button>
+<button onclick="deleteJob(${j.id})" style="background:rgba(224,90,74,0.1);color:var(--red);flex:1;">✕</button>
+</div>` : `
+${!j.paid ? `<div class="job-actions"><button onclick="openPayModal(${j.id})" style="background:rgba(224,90,74,0.12);color:var(--red);">💵 Record Payment</button></div>` : ''}
+`}
 </div>
 `;
 }).join('');
 }
 
 function markDone(id){
-const j = jobs.find(x=>x.id===id);
-if(j){ j.status='done'; save(); renderJobs(jobFilter); renderDashboard(); }
+openPayModal(id);
 }
 function deleteJob(id){
 jobs = jobs.filter(j=>j.id!==id);
@@ -898,10 +1002,23 @@ const monthRevenue = jobs.filter(j=>j.status==='done'&&j.date>=monthStart).reduc
 const doneCount = jobs.filter(j=>j.status==='done').length;
 const pendingCount = jobs.filter(j=>j.status==='upcoming').length;
 
+const allTimeRevenue = jobs.filter(j=>j.status==='done').reduce((a,j)=>a+j.price,0);
+const monthTax = Math.round(monthRevenue * 0.30);
+const allTimeTax = Math.round(allTimeRevenue * 0.30);
+
 document.getElementById('stat-customers').textContent = customers.length;
 document.getElementById('stat-revenue').textContent = '$'+monthRevenue;
 document.getElementById('stat-jobs').textContent = doneCount;
 document.getElementById('stat-pending').textContent = pendingCount;
+
+// Tax aside box
+const taxBox = document.getElementById('tax-aside-box');
+if(taxBox){
+taxBox.style.display = allTimeRevenue > 0 ? 'block' : 'none';
+document.getElementById('stat-tax').textContent = '$'+monthTax;
+document.getElementById('tax-basis').textContent = '$'+monthRevenue;
+document.getElementById('stat-tax-alltime').textContent = '$'+allTimeTax;
+}
 
 // Upcoming jobs
 const upcoming = jobs.filter(j=>j.status==='upcoming').sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3);
@@ -958,24 +1075,55 @@ document.getElementById('dash-chart').innerHTML = weeks.map(w=>`
 }
 
 // ============ QUOTE TOOL ============
+let selectedPkg = 'medium';
+
+const FULL_PKG_LOCKED = ['addon-weed','addon-fert','addon-beds'];
+
+function selectPkg(size){
+selectedPkg = size;
+document.querySelectorAll('.pkg-card').forEach(el=>el.classList.remove('selected'));
+const el = document.getElementById('pkg-'+size);
+if(el) el.classList.add('selected');
+applyPackageLocks();
+calcQuote();
+}
+
+function applyPackageLocks(){
+const isFullPkg = selectedPkg.startsWith('full-');
+const prices = {'addon-weed':'+$15–30','addon-fert':'+$25–40','addon-beds':'+$15–50'};
+FULL_PKG_LOCKED.forEach(id => {
+const cb = document.getElementById(id);
+if(!cb) return;
+const row = cb.closest('.addon-row');
+const priceEl = document.getElementById('addon-price-'+id.replace('addon-',''));
+if(isFullPkg){
+cb.checked = false;
+cb.disabled = true;
+if(row){ row.style.opacity='0.45'; row.style.pointerEvents='none'; }
+if(priceEl) priceEl.innerHTML = '<span style="background:rgba(174,220,90,0.15);color:var(--lime);font-size:10px;padding:2px 7px;border-radius:4px;letter-spacing:1px;font-weight:700;">INCLUDED</span>';
+} else {
+cb.disabled = false;
+if(row){ row.style.opacity='1'; row.style.pointerEvents=''; }
+if(priceEl) priceEl.textContent = prices[id] || '';
+}
+});
+}
+
 function calcQuote(showResult){
-const size = document.getElementById('q-size').value;
-const cond = document.getElementById('q-cond').value;
-const obs = document.getElementById('q-obs').value;
-const slope = document.getElementById('q-slope').value;
-const ctype = document.getElementById('q-ctype').value;
+const pkgBases = {
+'small':[65,75], 'medium':[75,90], 'large':[90,115],
+'full-small':[115,135], 'full-medium':[130,155], 'full-large':[150,185]
+};
+const [lo,hi] = pkgBases[selectedPkg] || [75,90];
+const isFullPkg = selectedPkg.startsWith('full-');
 
-const bases={small:[35,50],medium:[55,75],large:[80,120],xlarge:[120,180]};
-let [lo,hi]=bases[size];
-let condAdj=0,condLabel='+$0';
-if(cond==='overgrown'){condAdj=15;condLabel='+$15';}
-if(cond==='very'){condAdj=30;condLabel='+$30';}
-let diffAdj=(slope==='steep'?15:slope==='some'?7:0)+(obs==='many'?15:obs==='some'?7:0);
-let diffLabel = diffAdj>0?`+$${diffAdj}`:'+$0';
-let disc=ctype==='senior'?10:ctype==='recurring'?5:0;
-let discLabel=disc>0?`-$${disc}`:'None';
+// First-time visit
+const ft = document.querySelector('input[name="firsttime"]:checked');
+const ftVal = ft ? ft.value : 'none';
+const ftMap = {none:[0,0], light:[20,20], moderate:[25,30], heavy:[35,40]};
+const [ftLo, ftHi] = ftMap[ftVal] || [0,0];
 
-// Collect checked add-ons
+// Add-ons (checkboxes)
 const checked = [...document.querySelectorAll('.addon-cb:checked')];
 let addonLo=0, addonHi=0;
 const addonNames=[];
@@ -985,54 +1133,190 @@ addonHi+=parseInt(cb.dataset.hi);
 addonNames.push(cb.dataset.label);
 });
 
-let flo=lo+condAdj+diffAdj+addonLo-disc;
-let fhi=hi+condAdj+diffAdj+addonHi-disc;
-let mid=Math.round((flo+fhi)/2);
+// Discount
+const ctype = document.getElementById('q-ctype').value;
+const disc = ctype==='senior'?10:ctype==='recurring'?5:0;
 
-document.getElementById('qr-base').textContent=`$${lo}–$${hi}`;
-document.getElementById('qr-cond').textContent=condLabel;
-document.getElementById('qr-diff').textContent=diffLabel;
-document.getElementById('qr-disc').textContent=discLabel;
-document.getElementById('qr-final').textContent=`$${flo}–$${fhi}`;
+let flo = Math.max(65, lo + ftLo + addonLo - disc);
+let fhi = Math.max(65, hi + ftHi + addonHi - disc);
+let mid = Math.round((flo+fhi)/2);
 
-// Show add-ons line items
-const addonListEl = document.getElementById('qr-addons-list');
-if(checked.length){
-addonListEl.innerHTML = checked.map(cb=>`
-<div class="qr-row"><span class="qr-label">${cb.dataset.label}</span><span class="qr-val">+$${cb.dataset.lo}–${cb.dataset.hi}</span></div>
-`).join('');
-} else {
-addonListEl.innerHTML='';
-}
+// Base
+document.getElementById('qr-base').textContent = `$${lo}–$${hi} (${selectedPkg} base)`;
 
-// Services summary
-const baseService = 'Mow + Trim + Blow';
-const allServices = addonNames.length ? baseService+' · '+addonNames.join(' · ') : baseService;
-document.getElementById('qr-services-summary').textContent = '📋 '+allServices;
+// First-time row
+const ftEl = document.getElementById('qr-firsttime-row');
+if(ftVal !== 'none'){
+const ftLabels = {light:'Light first-time cleanup', moderate:'Moderate first-time cleanup', heavy:'Heavy first-time cleanup'};
+ftEl.innerHTML = `<div class="qr-row"><span class="qr-label">${ftLabels[ftVal]}</span><span class="qr-val">+$${ftLo}${ftLo!==ftHi?'–'+ftHi:''}</span></div>`;
+} else { ftEl.innerHTML=''; }
 
-const servicesText = addonNames.length
-? `mowing, trimming & blowing plus: ${addonNames.join(', ')}`
-: `mowing, trimming, and blowing`;
-document.getElementById('qr-script').textContent=`"Based on what I see, for ${servicesText} I'd charge $${flo} to $${fhi}. Right around $${mid} is the sweet spot. Want me to put you on the schedule?"`;
+// Add-ons
+const addonEl = document.getElementById('qr-addons-list');
+addonEl.innerHTML = checked.map(cb=>`<div class="qr-row"><span class="qr-label">${cb.dataset.label}</span><span class="qr-val">+$${cb.dataset.lo}${cb.dataset.lo!==cb.dataset.hi?'–'+cb.dataset.hi:''}</span></div>`).join('');
+
+// Discount
+const discEl = document.getElementById('qr-disc-row');
+discEl.innerHTML = disc>0 ? `<div class="qr-row"><span class="qr-label">Customer discount</span><span class="qr-val" style="color:var(--gold);">-$${disc}</span></div>` : '';
+
+document.getElementById('qr-final').textContent = `$${flo}–$${fhi}`;
+
+const fullPkgLabel = 'Full-Lawn Care Package (Mow · Trim · Edge · Cleanup · Weed Control · Fertilizer · Flower Beds)';
+const stdPkgLabel = selectedPkg.charAt(0).toUpperCase()+selectedPkg.slice(1).replace('mall','mall').replace('edium','edium').replace('arge','arge')+' Standard Base (Mow · Trim · Edge · Cleanup)';
+const baseLabel = isFullPkg ? fullPkgLabel : stdPkgLabel;
+const allServices = [baseLabel, ...(ftVal!=='none'?['First-time cleanup']:[]), ...addonNames].join(' · ');
+document.getElementById('qr-services-summary').innerHTML = '📋 <strong style="color:#d4e8d0;">Services:</strong><br>' + allServices;
+
+document.getElementById('qr-script').textContent = `"For everything you need here — ${allServices.toLowerCase()} — I'd charge $${flo} to $${fhi}. Right around $${mid} is fair. Want me to get you on the schedule?"`;
 
 lastQuote = {lo:flo, hi:fhi, mid, services:allServices};
 if(showResult) document.getElementById('qr-box').classList.add('show');
 }
 
+const BUSINESS_PHONE = '8039644818';
+const BUSINESS_PHONE_DISPLAY = '(803) 964-4818';
+
 function sendSMS(){
-const phone = document.getElementById('q-phone').value.trim().replace(/\D/g,'');
-if(!lastQuote){alert('Calculate a quote first.');return;}
-const servicesList = lastQuote.services || 'mow, trim & blow';
-const msg = encodeURIComponent(`Hi! Based on your yard, here's my quote:\n\nServices: ${servicesList}\nPrice: $${lastQuote.lo}–$${lastQuote.hi}\n\nWant to get scheduled? — [Your Name]`);
-window.location.href = `sms:${phone}&body=${msg}`;
+const rawPhone = document.getElementById('q-phone').value.trim().replace(/\D/g,'');
+if(!rawPhone){alert('Enter the customer phone number first.');return;}
+if(!lastQuote){alert('Build a quote first — tap BUILD MY QUOTE.');return;}
+const msgText = 'Hi! Here is your lawn service quote:\n\n'
++ lastQuote.services + '\n\n'
++ 'Price: $' + lastQuote.lo + '-$' + lastQuote.hi + '\n'
++ 'Minimum charge: $65\n\n'
++ 'Reply to schedule! \n- ' + BUSINESS_PHONE_DISPLAY;
+// Copy to clipboard so user can paste into Hushed
+if(navigator.clipboard && navigator.clipboard.writeText){
+navigator.clipboard.writeText(msgText).then(()=>{
+showSMSSheet(rawPhone, msgText);
+}).catch(()=>{ showSMSSheet(rawPhone, msgText); });
+} else {
+showSMSSheet(rawPhone, msgText);
+}
+}
+
+function showSMSSheet(phone, msgText){
+const formatted = phone.replace(/(\d{3})(\d{3})(\d{4})/,'($1) $2-$3');
+const modal = document.getElementById('modal-sms-sheet');
+document.getElementById('sms-sheet-to').textContent = formatted;
+document.getElementById('sms-sheet-body').value = msgText;
+document.getElementById('sms-sheet-direct-link').href = 'sms:' + phone;
+openModal('modal-sms-sheet');
+}
+
+
+function copySMSMessage(){
+const box = document.getElementById('sms-sheet-body');
+const text = box ? box.value : '';
+if(navigator.clipboard && navigator.clipboard.writeText){
+navigator.clipboard.writeText(text).then(()=>{
+const btn = event.target;
+btn.textContent = '✅ Copied!';
+setTimeout(()=>btn.textContent='📋 Copy Message',2000);
+});
+} else {
+box.select();
+document.execCommand('copy');
+const btn = event.target;
+btn.textContent = '✅ Copied!';
+setTimeout(()=>btn.textContent='📋 Copy Message',2000);
+}
+}
+
+function callCustomer(phone){
+window.location.href = 'tel:'+phone;
+}
+
+function textCustomer(phone, name){
+const msgText = 'Hi '+name+', this is [Your Name] reaching out about your lawn service. - '+BUSINESS_PHONE_DISPLAY;
+window.location.href = 'sms:'+phone+'&body='+encodeURIComponent(msgText);
 }
 
 function saveQuoteAsJob(){
-if(!lastQuote){alert('Calculate a quote first.');return;}
-if(!customers.length){alert('Add a customer first.');return;}
-closeModal && closeModal('qr-box');
+if(!lastQuote){alert('Build a quote first — tap BUILD MY QUOTE.');return;}
+if(!customers.length){alert('Add a customer first in the Clients tab.');return;}
 openAddJob();
-setTimeout(()=>{ document.getElementById('j-price').value=lastQuote.mid; },100);
+setTimeout(()=>{
+document.getElementById('j-price').value = lastQuote.mid;
+// Pre-fill notes with service summary
+document.getElementById('j-notes').value = lastQuote.services || '';
+// Show confirmation
+const box = document.getElementById('save-job-confirm');
+if(box){ box.style.display='block'; setTimeout(()=>box.style.display='none',3000); }
+},200);
+}
+
+// ============ PAYMENT / JOB CLOSE ============
+let selectedPayMethod = 'cash';
+
+function selectPayMethod(method){
+selectedPayMethod = method;
+['cash','venmo','zelle','check'].forEach(m=>{
+const el = document.getElementById('pm-'+m);
+if(el) el.classList.toggle('active', m===method);
+});
+const guide = document.getElementById('pay-cash-guide');
+if(guide) guide.style.display = method==='cash' ? 'block' : 'none';
+}
+
+function openPayModal(jobId){
+const j = jobs.find(x=>x.id===jobId);
+if(!j) return;
+document.getElementById('pay-job-id').value = jobId;
+document.getElementById('pay-amount').value = j.price || '';
+document.getElementById('pay-notes').value = '';
+selectedPayMethod = 'cash';
+['cash','venmo','zelle','check'].forEach(m=>{
+const el = document.getElementById('pm-'+m);
+if(el) el.classList.toggle('active', m==='cash');
+});
+const guide = document.getElementById('pay-cash-guide');
+if(guide) guide.style.display='block';
+document.getElementById('pay-job-summary').innerHTML =
+`<strong style="color:var(--lime);font-size:16px;">${j.customerName}</strong><br>
+📋 ${j.services}<br>
+📅 ${formatDate(j.date)}<br>
+💵 Quoted: <strong style="color:var(--lime);">$${j.price}</strong>`;
+openModal('modal-pay');
+}
+
+function closeJobWithPayment(){
+const jobId = parseInt(document.getElementById('pay-job-id').value);
+const amount = parseFloat(document.getElementById('pay-amount').value)||0;
+const notes = document.getElementById('pay-notes').value.trim();
+const j = jobs.find(x=>x.id===jobId);
+if(!j) return;
+j.status = 'done';
+j.paid = true;
+j.paymentMethod = selectedPayMethod;
+j.amountReceived = amount;
+j.paymentNotes = notes;
+j.closedAt = new Date().toISOString();
+save();
+closeModal('modal-pay');
+renderJobs(jobFilter);
+renderDashboard();
+const change = amount - j.price;
+const taxAside = Math.round(amount * 0.30);
+let msg = `✅ Job closed! $${amount} received via ${selectedPayMethod}.`;
+if(change > 0) msg += `\nChange to give back: $${change.toFixed(2)}`;
+if(change < 0) msg += `\nStill owed: $${Math.abs(change).toFixed(2)}`;
+msg += `\n\n💰 Set aside for taxes (30%): $${taxAside}`;
+alert(msg);
+}
+
+function markJobDoneNoPay(){
+const jobId = parseInt(document.getElementById('pay-job-id').value);
+const j = jobs.find(x=>x.id===jobId);
+if(!j) return;
+j.status = 'done';
+j.paid = false;
+j.closedAt = new Date().toISOString();
+save();
+closeModal('modal-pay');
+renderJobs(jobFilter);
+renderDashboard();
+alert('Job marked done. Payment still to be collected.');
 }
 
 // ============ SCRIPTS ============
@@ -1208,11 +1492,353 @@ renderDashboard();
 alert('All data cleared.');
 }
 
+
+// ============ SCHEDULE / CALENDAR ============
+let schedWeekOffset = 0;
+let currentSchedView = 'week';
+
+function initSchedule(){
+schedWeekOffset = 0;
+currentSchedView = 'week';
+document.querySelectorAll('#screen-schedule .tab-btn').forEach(b=>b.classList.remove('active'));
+const wb = document.getElementById('sv-week');
+if(wb) wb.classList.add('active');
+const calNav = document.getElementById('cal-nav');
+if(calNav) calNav.style.display = 'flex';
+renderSchedWeek();
+}
+
+function schedView(view, el){
+currentSchedView = view;
+document.querySelectorAll('#screen-schedule .tab-btn').forEach(b=>b.classList.remove('active'));
+if(el) el.classList.add('active');
+const calNav = document.getElementById('cal-nav');
+if(calNav) calNav.style.display = (view==='week'||view==='month') ? 'flex' : 'none';
+if(view==='week') renderSchedWeek();
+else if(view==='month') renderSchedMonth();
+else if(view==='pipeline') renderPipeline();
+else if(view==='route') renderRoute();
+}
+
+function shiftWeek(dir){
+schedWeekOffset += dir;
+if(currentSchedView==='week') renderSchedWeek();
+else renderSchedMonth();
+}
+
+function getWeekDays(offset){
+const now = new Date();
+const dow = now.getDay();
+const monday = new Date(now);
+monday.setDate(now.getDate() - dow + 1 + offset*7);
+const days = [];
+for(let i=0;i<7;i++){
+const d = new Date(monday);
+d.setDate(monday.getDate()+i);
+days.push(d);
+}
+return days;
+}
+
+function toYMD(d){ return d.toISOString().split('T')[0]; }
+
+const DAYNAMES = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+function renderSchedWeek(){
+const days = getWeekDays(schedWeekOffset);
+const startLbl = days[0].toLocaleDateString('en-US',{month:'short',day:'numeric'});
+const endLbl = days[6].toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+const rl = document.getElementById('cal-range-label');
+if(rl) rl.textContent = startLbl + ' \u2013 ' + endLbl;
+const weekYMDs = days.map(toYMD);
+const weekJobs = jobs.filter(j=>weekYMDs.includes(j.date));
+const weekRev = weekJobs.filter(j=>j.status==='done').reduce((a,j)=>a+j.price,0);
+const weekBooked = weekJobs.reduce((a,j)=>a+(j.status!=='done'?j.price:0),0);
+const wr = document.getElementById('cal-week-revenue');
+if(wr) wr.textContent = '$'+weekRev+' earned \xb7 $'+weekBooked+' booked';
+const today = toYMD(new Date());
+let html = '<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:16px;">';
+days.forEach((d,i)=>{
+const ymd = toYMD(d);
+const dayJobs = jobs.filter(j=>j.date===ymd);
+const isToday = ymd===today;
+const isPast = ymd<today;
+const bg = isToday ? 'rgba(174,220,90,0.12)' : 'var(--card)';
+const border = isToday ? 'var(--lime)' : 'var(--border)';
+const numColor = isToday ? 'var(--lime)' : isPast ? '#4a5e48' : 'var(--text)';
+const dayColor = isToday ? 'var(--lime)' : '#8fa888';
+html += `<div style="background:${bg};border:1.5px solid ${border};border-radius:10px;padding:8px 4px;cursor:pointer;min-height:80px;" onclick="openDayDetail('${ymd}')">`;
+html += `<div style="text-align:center;margin-bottom:4px;">`;
+html += `<div style="font-size:10px;color:${dayColor};font-weight:700;text-transform:uppercase;">${DAYNAMES[i]}</div>`;
+html += `<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:${numColor}">${d.getDate()}</div>`;
+html += `</div>`;
+if(dayJobs.length){
+dayJobs.slice(0,3).forEach(j=>{
+const col = j.status==='done' ? '#4a7a4a' : j.date<today ? 'var(--red)' : 'var(--lime)';
+const textCol = j.status==='done' ? '#d4f0d4' : '#0a0f09';
+html += `<div style="background:${col};border-radius:4px;padding:2px 4px;margin-bottom:2px;font-size:9px;color:${textCol};overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${j.customerName}</div>`;
+});
+if(dayJobs.length>3) html += `<div style="font-size:9px;color:#8fa888;text-align:center;">+${dayJobs.length-3} more</div>`;
+} else {
+html += `<div style="font-size:9px;color:#3a5038;text-align:center;margin-top:8px;">open</div>`;
+}
+html += `</div>`;
+});
+html += `</div>`;
+const todayJobs = jobs.filter(j=>j.date===today);
+if(todayJobs.length){
+html += `<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:8px;">Today's Jobs</div>`;
+html += renderJobCards(todayJobs);
+}
+const sc = document.getElementById('sched-content');
+if(sc) sc.innerHTML = html;
+}
+
+function renderSchedMonth(){
+const now = new Date();
+const refDate = new Date(now.getFullYear(), now.getMonth() + schedWeekOffset, 1);
+const monthLabel = refDate.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+const rl = document.getElementById('cal-range-label');
+if(rl) rl.textContent = monthLabel;
+const firstDay = new Date(refDate.getFullYear(), refDate.getMonth(), 1);
+const lastDay = new Date(refDate.getFullYear(), refDate.getMonth()+1, 0);
+const startDow = (firstDay.getDay()+6)%7;
+const today = toYMD(new Date());
+const mStart = toYMD(firstDay);
+const mEnd = toYMD(lastDay);
+const mJobs = jobs.filter(j=>j.date>=mStart&&j.date<=mEnd);
+const mRev = mJobs.filter(j=>j.status==='done').reduce((a,j)=>a+j.price,0);
+const wr = document.getElementById('cal-week-revenue');
+if(wr) wr.textContent = '$'+mRev+' earned this month \xb7 '+mJobs.length+' jobs';
+let html = '<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:8px;">';
+['M','T','W','T','F','S','S'].forEach(d=>{
+html += `<div style="text-align:center;font-size:10px;color:#6a8066;padding:4px;font-weight:700;">${d}</div>`;
+});
+html += '</div><div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;">';
+for(let i=0;i<startDow;i++) html += '<div></div>';
+for(let day=1;day<=lastDay.getDate();day++){
+const dt = new Date(refDate.getFullYear(), refDate.getMonth(), day);
+const ymd = toYMD(dt);
+const dJobs = jobs.filter(j=>j.date===ymd);
+const isToday = ymd===today;
+const bg = isToday ? 'rgba(174,220,90,0.15)' : 'var(--card)';
+const border = isToday ? 'var(--lime)' : dJobs.length ? 'rgba(174,220,90,0.2)' : 'var(--border)';
+const numStyle = isToday ? 'font-size:11px;color:var(--lime);font-weight:700;margin-bottom:2px;' : 'font-size:11px;color:var(--text);margin-bottom:2px;';
+html += `<div style="background:${bg};border:1px solid ${border};border-radius:6px;padding:4px;min-height:44px;cursor:pointer;" onclick="openDayDetail('${ymd}')">`;
+html += `<div style="${numStyle}">${day}</div>`;
+if(dJobs.length){
+html += '<div style="display:flex;flex-wrap:wrap;gap:2px;">';
+dJobs.slice(0,3).forEach(j=>{
+const dotCol = j.status==='done' ? '#4a9e4a' : 'var(--lime)';
+html += `<div style="width:6px;height:6px;border-radius:50%;background:${dotCol}"></div>`;
+});
+html += '</div>';
+html += `<div style="font-size:9px;color:#8fa888;">${dJobs.length} job${dJobs.length>1?'s':''}</div>`;
+}
+html += '</div>';
+}
+html += '</div>';
+const sc = document.getElementById('sched-content');
+if(sc) sc.innerHTML = html;
+}
+
+function openDayDetail(ymd){
+const dayJobs = jobs.filter(j=>j.date===ymd);
+const dt = new Date(ymd+'T12:00:00');
+const label = dt.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+const dayRev = dayJobs.reduce((a,j)=>a+j.price,0);
+let html = `<div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--lime);margin-bottom:4px;">${label}</div>`;
+if(dayJobs.length){
+html += `<div style="font-size:12px;color:#8fa888;margin-bottom:12px;">${dayJobs.length} job${dayJobs.length>1?'s':''} \xb7 $${dayRev} total</div>`;
+html += renderJobCards(dayJobs);
+} else {
+html += '<div style="color:#8fa888;font-size:14px;padding:20px 0;text-align:center;">No jobs this day.</div>';
+}
+html += '<div style="margin-top:14px;"><button onclick="openAddJob()" class="btn btn-primary">+ Add Job This Day</button></div>';
+const mb = document.getElementById('modal-day-body');
+if(mb) mb.innerHTML = html;
+openModal('modal-day');
+}
+
+function renderJobCards(list){
+return list.map(function(j){
+const today = toYMD(new Date());
+const isOverdue = j.status==='upcoming' && j.date < today;
+const statusColor = j.status==='done' ? 'var(--blue)' : isOverdue ? 'var(--red)' : 'var(--lime)';
+const actionBtn = j.status==='upcoming'
+? `<button onclick="openPayModal(${j.id});closeModal(&quot;modal-day&quot;)" style="background:rgba(174,220,90,0.15);color:var(--lime);border:none;border-radius:6px;padding:5px 10px;font-size:11px;font-weight:700;cursor:pointer;">Close Job</button>`
+: `<span class="badge ${isOverdue?'overdue':j.status}">${j.status}</span>`;
+const notesHtml = j.notes ? `<div style="font-size:12px;color:#8fa888;margin-top:6px;">${j.notes}</div>` : '';
+return `<div class="card" style="margin-bottom:8px;">
+<div class="card-row">
+<div><div class="card-name">${j.customerName}</div><div class="card-detail">${j.services}</div></div>
+<div style="text-align:right;">
+<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:${statusColor};">$${j.price}</div>
+${actionBtn}
+</div>
+</div>
+${notesHtml}
+</div>`;
+}).join('');
+}
+
+function renderPipeline(){
+const calNav = document.getElementById('cal-nav');
+if(calNav) calNav.style.display='none';
+const stages = [
+{key:'upcoming', label:'\u{1F4CB} Scheduled', color:'var(--lime)', desc:'Jobs booked & waiting'},
+{key:'overdue', label:'\u26A0\uFE0F Overdue', color:'var(--red)', desc:'Past due, not closed'},
+{key:'done_unpaid', label:'\u{1F4B5} Done \xb7 Unpaid', color:'var(--gold)', desc:'Completed, payment pending'},
+{key:'done_paid', label:'\u2705 Closed', color:'var(--blue)', desc:'Paid & complete'},
+];
+const today = toYMD(new Date());
+let html = '';
+stages.forEach(s=>{
+let list;
+if(s.key==='upcoming') list = jobs.filter(j=>j.status==='upcoming'&&j.date>=today);
+else if(s.key==='overdue') list = jobs.filter(j=>j.status==='upcoming'&&j.date<today);
+else if(s.key==='done_unpaid') list = jobs.filter(j=>j.status==='done'&&!j.paid);
+else list = jobs.filter(j=>j.status==='done'&&j.paid);
+const stageRev = list.reduce((a,j)=>a+j.price,0);
+html += `<div style="margin-bottom:18px;">`;
+html += `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">`;
+html += `<div style="font-size:12px;font-weight:700;color:${s.color};">${s.label} <span style="font-size:10px;color:#8fa888;font-weight:400;">\u2014 ${s.desc}</span></div>`;
+html += `<div style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:${s.color};">${list.length} \xb7 $${stageRev}</div>`;
+html += `</div>`;
+if(list.length){
+list.sort((a,b)=>a.date.localeCompare(b.date)).forEach(j=>{
+const closeBtnHtml = (s.key==='upcoming'||s.key==='overdue')
+? `<button onclick="openPayModal(${j.id})" style="background:rgba(174,220,90,0.12);color:var(--lime);border:none;border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;margin-top:4px;">Close</button>`
+: s.key==='done_unpaid'
+? `<button onclick="openPayModal(${j.id})" style="background:rgba(224,184,74,0.12);color:var(--gold);border:none;border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;margin-top:4px;">Pay</button>`
+: '';
+const svcShort = j.services ? j.services.split('\xb7')[0].trim() : j.services;
+html += `<div class="card" style="margin-bottom:6px;padding:12px 14px;">
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<div>
+<div style="font-weight:600;font-size:14px;color:var(--text);">${j.customerName}</div>
+<div style="font-size:11px;color:#8fa888;">\u{1F4C5} ${formatDate(j.date)} \xb7 ${svcShort}</div>
+</div>
+<div style="text-align:right;">
+<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--lime);">$${j.price}</div>
+${closeBtnHtml}
+</div>
+</div>
+</div>`;
+});
+} else {
+html += `<div style="font-size:12px;color:#4a5e48;padding:8px 12px;background:var(--card);border-radius:8px;">None</div>`;
+}
+html += `</div>`;
+});
+const sc = document.getElementById('sched-content');
+if(sc) sc.innerHTML = html;
+}
+
+function renderRoute(){
+const calNav = document.getElementById('cal-nav');
+if(calNav) calNav.style.display='none';
+const today = toYMD(new Date());
+const todayJobs = jobs.filter(j=>j.date===today&&j.status==='upcoming');
+const tom = new Date(); tom.setDate(tom.getDate()+1);
+const tomorrowJobs = jobs.filter(j=>j.date===toYMD(tom)&&j.status==='upcoming');
+const totalRev = todayJobs.reduce((a,j)=>a+j.price,0);
+let html = `<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:12px;">Today's Route \u2014 ${todayJobs.length} stops \xb7 $${totalRev}</div>`;
+if(todayJobs.length){
+html += '<div style="font-size:11px;color:#8fa888;margin-bottom:10px;">\u{1F4A1} Tip: Group nearby addresses \u2014 save fuel and time</div>';
+todayJobs.forEach((j,i)=>{
+const cust = customers.find(x=>x.id===j.customerId)||{address:'No address on file'};
+const addr = cust.address || 'No address on file';
+const mapsUrl = (addr && addr!=='No address on file') ? 'https://maps.apple.com/?daddr='+encodeURIComponent(addr) : '';
+const navBtn = mapsUrl ? `<a href="${mapsUrl}" style="display:block;margin-top:4px;background:rgba(74,158,224,0.15);color:var(--blue);border-radius:6px;padding:4px 8px;font-size:10px;font-weight:700;text-decoration:none;">\u{1F5FA} Navigate</a>` : '';
+const svcShort = j.services ? j.services.split('(')[0].trim() : '';
+html += `<div class="card" style="margin-bottom:8px;padding:14px;">
+<div style="display:flex;gap:12px;align-items:center;">
+<div style="width:32px;height:32px;background:var(--lime);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#0a0f09;flex-shrink:0;">${i+1}</div>
+<div style="flex:1;">
+<div style="font-weight:600;font-size:15px;color:var(--text);">${j.customerName}</div>
+<div style="font-size:12px;color:#8fa888;">${addr}</div>
+<div style="font-size:11px;color:#6a8a65;margin-top:2px;">${svcShort}</div>
+</div>
+<div style="text-align:right;">
+<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--lime);">$${j.price}</div>
+${navBtn}
+</div>
+</div>
+</div>`;
+});
+html += `<div style="margin-top:14px;padding:12px 14px;background:rgba(174,220,90,0.06);border:1px solid rgba(174,220,90,0.15);border-radius:10px;">
+<div style="font-size:11px;color:var(--lime);font-weight:700;margin-bottom:4px;">ROUTE SUMMARY</div>
+<div style="font-size:12px;color:#8fa888;">${todayJobs.length} stops \xb7 $${totalRev} total \xb7 ~${todayJobs.length*45} min estimated</div>
+</div>`;
+} else {
+html += `<div style="text-align:center;padding:32px 0;color:#8fa888;">
+<div style="font-size:32px;margin-bottom:8px;">\u{1F33F}</div>
+<div>No jobs scheduled for today.</div>
+<button onclick="openAddJob()" style="margin-top:14px;background:var(--lime);color:#0a0f09;border:none;border-radius:8px;padding:12px 24px;font-weight:700;cursor:pointer;">+ Schedule a Job</button>
+</div>`;
+}
+if(tomorrowJobs.length){
+html += `<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8fa888;font-weight:700;margin:18px 0 10px;">Tomorrow \u2014 ${tomorrowJobs.length} jobs</div>`;
+tomorrowJobs.forEach(j=>{
+const cust = customers.find(x=>x.id===j.customerId)||{address:'\u2014'};
+html += `<div class="card" style="margin-bottom:6px;padding:12px 14px;">
+<div style="display:flex;justify-content:space-between;">
+<div>
+<div style="font-size:14px;font-weight:600;color:var(--text);">${j.customerName}</div>
+<div style="font-size:11px;color:#8fa888;">${cust.address||'\u2014'}</div>
+</div>
+<div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--lime);">$${j.price}</div>
+</div>
+</div>`;
+});
+}
+const sc = document.getElementById('sched-content');
+if(sc) sc.innerHTML = html;
+}
+
+
 // ============ INIT ============
 document.getElementById('topbarAction').style.display='none';
 renderDashboard();
 showScript('door', document.querySelector('#screen-scripts .tab-btn'));
 </script>
 
+<!-- SMS SHEET MODAL -->
+
+<div class="modal-overlay" id="modal-sms-sheet">
+<div class="modal">
+<div class="modal-handle"></div>
+<div class="modal-title">📱 Send Quote via Hushed</div>
+<div style="background:#0e1a0d;border-radius:10px;padding:14px;margin-bottom:14px;">
+<div style="font-size:11px;color:#8fa888;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">To</div>
+<div style="font-size:16px;color:#e8f5e4;font-weight:600;" id="sms-sheet-to">—</div>
+<div style="font-size:11px;color:#6a9068;margin-top:4px;">Send from Hushed: <strong style="color:var(--lime);">(803) 964-4818</strong></div>
+</div>
+<div class="form-group">
+<label class="form-label">Message (tap to edit before sending)</label>
+<textarea class="form-textarea" id="sms-sheet-body" style="height:160px;font-size:13px;line-height:1.6;"></textarea>
+</div>
+<div style="font-size:12px;color:#8fa888;margin-bottom:14px;line-height:1.6;padding:10px 12px;background:#0e1a0d;border-radius:8px;">
+<strong style="color:var(--lime);">How to send via Hushed:</strong><br>
+1. Tap <strong>Copy Message</strong> below<br>
+2. Tap <strong>Open in Hushed</strong> — it dials the number<br>
+3. Paste the message and hit send
+</div>
+<button class="btn btn-primary" onclick="copySMSMessage()" style="margin-bottom:8px;">📋 Copy Message</button>
+<a id="sms-sheet-direct-link" class="btn btn-sms" href="sms:" style="display:block;text-align:center;text-decoration:none;margin-bottom:8px;padding:14px;border-radius:10px;font-weight:600;" onclick="closeModal('modal-sms-sheet')">Open in Hushed / Messages</a>
+<button class="btn btn-secondary" onclick="closeModal('modal-sms-sheet')">Cancel</button>
+</div>
+</div>
+
+<!-- DAY DETAIL MODAL -->
+
+<div class="modal-overlay" id="modal-day">
+<div class="modal">
+<div class="modal-handle"></div>
+<div id="modal-day-body"></div>
+<button class="btn btn-secondary mt-10" onclick="closeModal('modal-day')">Close</button>
+</div>
+</div>
 </body>
 </html>
